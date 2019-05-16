@@ -7,19 +7,20 @@ Observação: No arquivo README do projeto explique o funcionamento e a soluçã
 
 Frameworks/Bibliotecas:
 
-AngularJS
-SASS ou LESS
-Material Design
+* AngularJS
+* SASS ou LESS
+* Material Design
+
 Diferenciais:
 
-Responsividade
-Componentização
-Orientação a objeto
-Critérios:
+* Responsividade
+* Componentização
+* Orientação a objeto
+ Critérios:
 
-Performance
-Usabilidade
-Criatividade
-Clean code (código limpo e organizado)
-Semântica do HTML
-Estruturação do CSS
+* Performance
+* Usabilidade
+* Criatividade
+* Clean code (código limpo e organizado)
+* Semântica do HTML
+* Estruturação do CSS
