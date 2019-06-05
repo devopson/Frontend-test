@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">    
+    <title>Marvel Heroes</title>        
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+</head>
+
+
+<body ng-app="app" ng-controller="heroListCtrl" class="container">
+
+    <div class = "card-panel red lighten-1 white-text"><h3>MARVEL's Hero List</h3></div>
+
+    <div class="row">
+        <form class="col s12">
+            <div class="row">
+                <div class="input-field col s4">
+                    <input placeholder="Enter a name to filter" id="name" type="text" ng-model="nameF">
+                    <label for="name">Name</label>
+                </div>
+                <div class="input-field col s2">
+                    <select ng-model="yearF" ng-options="y for y in years">
+                        <option value="">-- choose a year to filter --</option>                     
+                    </select>
+                    <label>Year of change</label>
+                </div>
+            </div>
+        </form>
+    </div>
+    <ul class="collection">
+        <li class="collection-item avatar" ng-repeat="hero in resp.data.results | filter: {name: nameF} | filter: dateFilter" >
+            <img src="{{hero.thumbnail.path}}.{{hero.thumbnail.extension}}" alt="{{hero.id}}" class="circle">                    
+            <span class="title">{{hero.name}}</span>
+            <p>Last change: {{hero.modified}}</p>
+        </li>
+    </ul>
+
+    <footer class="page-footer red">
+        <div class="footer-copyright red lighten-1">
+            <div class="container">
+                <a class="grey-text text-lighten-4" href="http://marvel.com\" target="_blank">Data provided by Marvel. © 2019 MARVEL</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.9/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-md5/0.1.10/angular-md5.min.js"></script>
+    <script src="app.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('select').material_select();
+        });
+    </script>
+</body>
+
+</html>
