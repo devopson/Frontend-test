@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html ng-app="marvelModule">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teste Positivo</title>
+    <meta name="author" content="HTML e CSS Pro" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
+    <link href="css/style.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+    <script src="js/materialize/init.js"></script>
+    <script src="lib/Angular/angular.min.js"></script>
+    <script src="js/app/app.js"></script>
+    <script src="js/app/controllers.js"></script>
+    <script src="js/app/services.js"></script>
+</head>
+
+<body ng-controller="marvelController">
+    <header>
+        <img src="img/marvel-logo.png" />
+    </header>
+    <section id="banner">
+        <div class="parallax"></div>
+    </section>
+    <section>
+        <input ng-model="busca.name" placeholder="Buscar por nome..." />
+        <input ng-model="busca.modified" placeholder="Buscar por modificação..." />
+    </section>
+
+    <section id="content-marvel">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Modificação</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody ng-repeat="p in personagens | filter:busca">
+                <tr>
+                    <td>{{p.name}}</td>
+                    <td>{{p.modified | date}}</td>
+                    <td><button ng-click="Detalhes(p)" class="btn">detalhes</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <footer>
+        <h5>© Copyright Bruno Ribeiro da Rocha</h5>
+    </footer>
+
+    <div id="modal1" class="modal modal-trigger modal-fixed-footer">
+        <div class="modal-content">
+            <h4>Detalhes do Personagem</h4>
+            <div class="row">
+                <div class="col m6 s12">
+                    <label>Nome: </label>
+                    <p>{{Personagem.name}}</p>
+                </div>
+
+                <div class="col m6 s12">
+                    <label>Modificação: </label>
+                    <p>{{Personagem.modified | date}}</p>
+                </div>
+                <div class="col m6 s12">
+                    <label>Series: </label>
+                    <p ng-repeat="p in Personagem.series.items">{{p.name}}</p>
+                </div>
+                <div class="col m6 s12">
+                    <label>Imagem: </label>
+                    <br/>
+                    <img src="{{Personagem.thumbnail.path + '.' + Personagem.thumbnail.extension}}" style="height: 25%; width:25%;">
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Fechar</a>
+        </div>
+    </div>
+</body>
+
+</html>
