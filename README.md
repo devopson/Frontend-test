@@ -1,26 +1,7 @@
-Teste para processo seletivo para desenvolvedor front-end da Editora Positivo.
+A solução se baseia em gerenciar o 'body' do documento HTML com a diretiva do AngularJS. Dentro do arquivo app.js existe o controller 'heroListCtrl' que controla os bindings, os filtros, a renderização dos componentes dinâmicos e chamada à API da MARVEL.
 
-Teste Front-End - Editora Positivo
-Usando a API da Marvel (https://developer.marvel.com), crie uma Single Page Application mostrando uma listagem dos personagens para o usuário consultar. O usuário tem que poder filtrar os personagens com base no nome, inicial ou data de modificação (ano), sendo que a seleção de um filtro afeta o outro. A aplicação tem que ser feita em AngularJS e fazer uso de pelo menos uma das diretivas padrão do framework. O layout (cores, ícones, imagens) fica a seu cargo.
+Foi usada a biblioteca Materialize para aplicar estilos. Como não a mesma não foi extendida, não foi usado SASS, somente a inclusão da biblioteca CSS e JS via CDN.
 
-Observação: No arquivo README do projeto explique o funcionamento e a solução adotada na sua implementação do desafio.
+Para completo funcionamento, no arquivo app.js é necesário informar as chaves pública e privada da API, basta colocar os valores nas variáveis $scope.pukey (Pública) e $scope.prkey (Privada).
 
-Frameworks/Bibliotecas:
-
-* AngularJS
-* SASS ou LESS
-* Material Design
-
-Diferenciais:
-
-* Responsividade
-* Componentização
-* Orientação a objeto
- Critérios:
-
-* Performance
-* Usabilidade
-* Criatividade
-* Clean code (código limpo e organizado)
-* Semântica do HTML
-* Estruturação do CSS
+A chamada da API solicita os primeiros 50 heróis da lista. Por única chamada o limite é 100, mas para fins de melhor performance foi restringido à 50. E sobre essa lista os filtros por nome e ano de modificação podem ser feitos. A lista informa um avatar com a imagem do herói, o nome e a data da ultima modificação.
